@@ -21,7 +21,7 @@ public:
 
     void withdraw(double amount)
     {
-        
+
         if (amount <= balance)
         {
             balance -= amount;
@@ -32,15 +32,15 @@ public:
         }
     }
     void tax(double amount)
+{
+    double taxAmount = (balance / 10);
+    if (balance > taxAmount) 
     {
-        int tax = 5000;
-        if (balance > tax)
-        {
-            balance -= amount;
-        }
-
-    }
-
+        balance -= taxAmount;
+        std::cout << "You succesfully payed the taxes! Amount: $" << taxAmount << std::endl;
+     }
+   
+}
     void display()
     {
         std::cout << "Account: " << name << "\nBalance: $" << balance << std::endl;
@@ -49,8 +49,8 @@ public:
 
 int main()
 {
-    int k = 0;
-    int tax = 5000;
+   
+    
     std::string name;
     double initialDeposit;
 
@@ -63,6 +63,9 @@ int main()
 
     int choice;
     double amount;
+    double tax{};
+    
+    
 
     do
     {
@@ -90,15 +93,10 @@ int main()
             account.display();
             break;
         case 4:
-            std::cout << "Click Enter to pay the taxes!: ";
-            
-            while (k != 13)
-            
-            {
-                k = _getwch();
-            }
+        {
             account.tax(tax);
             break;
+        }
         case 5:
             break;
         default:
