@@ -31,7 +31,7 @@ public:
             std::cout << "Insufficient funds." << std::endl;
         }
     }
-    void tax(double amount)
+    void tax()
 {
     double taxAmount = (balance / 10);
     if (balance > taxAmount) 
@@ -63,9 +63,6 @@ int main()
 
     int choice;
     double amount;
-    double tax{};
-    
-    
 
     do
     {
@@ -94,7 +91,7 @@ int main()
             break;
         case 4:
         {
-            account.tax(tax);
+            account.tax();
             break;
         }
         case 5:
